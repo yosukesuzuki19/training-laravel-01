@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+//Route::controller(['auth'])->group(function () {
+    Route::get('items/search', 'ItemController@search')->name('items.search');
+    Route::resource('items', 'ItemController');
+
+    Route::get('categories/search', 'CategoryController@search')->name('categories.search');
+    Route::resource('categories', 'CategoryController');
+//});
+
+
+//Route::get('/home', 'HomeController@index')->name('home');
